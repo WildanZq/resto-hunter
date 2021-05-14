@@ -1,0 +1,331 @@
+:root {
+    --primary-color: #222225;
+    --secondary-color: #daa852;
+    --text-color: #212121;
+}
+
+* {
+    color: var(--text-color);
+}
+html {
+    scroll-padding-top: 86px;
+    scroll-behavior: smooth;
+}
+body {
+    position: relative;
+    z-index: initial;
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 66px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+button {
+    cursor: pointer;
+}
+img {
+    width: 100%;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 16px;
+    margin: auto;
+    z-index: 10;
+
+    background-color: var(--secondary-color);
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 70px;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+
+    width: 100vw;
+    background-color: var(--primary-color);
+}
+.header__content {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 16px;
+}
+.header__logo {
+    height: 32px;
+    width: auto;
+    filter: invert(100%);
+}
+.header__title {
+    margin: 0;
+    margin-left: 8px;
+
+    font-size: 1.6rem;
+    color: white;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+}
+.nav:focus-within .nav__toggler {
+    pointer-events: none;
+}
+.nav:focus-within .nav__toggler::before {
+    content: '✕';
+}
+.nav__toggler::before {
+    content: '☰';
+}
+.nav__toggler {
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 1.8rem;
+    padding: 3px 10px;
+}
+.nav:focus-within .nav__list {
+    right: 0;
+    visibility: visible;
+}
+.nav__list {
+    transition: .5s right ease, .5s visibility ease;
+    position: absolute;
+    right: -300px;
+    top: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    height: calc(100vh - 100%);
+    overflow: hidden;
+
+    width: 70%;
+    max-width: 300px;
+    background-color: var(--secondary-color);
+    list-style-type: none;
+}
+.nav__item a {
+    position: relative;
+    display: block;
+    padding: 14px 16px;
+
+    font-size: 1rem;
+    text-align: center;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.nav__item a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    width: 18px;
+    border-top: 2px solid var(--text-color);
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    margin-bottom: 24px;
+    border-bottom-right-radius: 100% 4rem;
+    border-bottom-left-radius: 100% 4rem;
+}
+.hero__img {
+    width: 100%;
+    filter: brightness(.7);
+    height: 300px;
+    object-fit: cover;
+}
+.hero__content {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.hero__title {
+    width: 100%;
+    margin: 16px;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+}
+
+#main {
+    max-width: 1024px;
+    margin: auto;
+}
+
+.restaurant {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 16px;
+}
+.restaurant__a {
+    display: block;
+    color: initial;
+    text-decoration: none;
+    width: 100%;
+}
+.restaurant__a:hover .restaurant__item {
+    box-shadow: rgba(0, 0, 0, 0.166) 0 1rem 3rem;
+    transform: translateY(-4px);
+}
+.restaurant__item {
+    transition: .5s box-shadow, .5s transform;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    margin: 8px;
+    border: thin solid lightgray;
+}
+.restaurant__img {
+    object-fit: cover;
+    height: 170px;
+}
+.restaurant__content {
+    padding: 16px;
+    box-sizing: border-box;
+    max-width: 400px;
+    margin: auto;
+}
+.restaurant__title {
+    margin-top: 0;
+    margin-bottom: .8rem;
+}
+.restaurant__desc {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+    text-overflow: ellipsis;
+
+    margin: 0;
+    margin-bottom: .8rem;
+    width: 100%;
+}
+.restaurant__location {
+    color: #555555;
+    font-size: .9rem;
+}
+.restaurant__location::before {
+    content: '⌂';
+    margin-right: .5rem;
+    font-size: 1.2rem;
+}
+.restaurant__rating {
+    position: absolute;
+    left: 0;
+    top: 12px;
+
+    padding: 8px 16px;
+    padding-right: 24px;
+    background-color: var(--secondary-color);
+    border-bottom-right-radius: 2rem 2rem;
+    font-size: .9rem;
+}
+.restaurant__rating::before {
+    content: '★';
+    font-size: 1rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    padding: 16px 0;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px)  {
+    .header__content {
+        padding: 20px 16px;
+    }
+
+    .nav__toggler {
+        display: none;
+    }
+    .nav__list {
+        position: initial;
+        visibility: visible;
+        right: unset;
+        top: unset;
+        height: unset;
+        width: unset;
+        max-width: unset;
+        overflow: unset;
+        background-color: unset;
+        display: flex;
+        height: 100%;
+    }
+    .nav__item a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+        color: white;
+    }
+    .nav__item:hover a::after {
+        width: 100%;
+    }
+    .nav__item a::after {
+        transition: .5s width;
+        width: 0;
+        bottom: 0;
+        border-color: white;
+        border-width: 3px;
+    }
+
+    .hero {
+        border-bottom-right-radius: 100% 8rem;
+        border-bottom-left-radius: 100% 8rem;
+    }
+    .hero__title {
+        font-size: 2.4rem;
+    }
+
+    .restaurant__a {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1024px)  {
+    body {
+        padding-bottom: 86px;
+    }
+
+    .hero {
+        margin-bottom: 44px;
+        border-bottom-right-radius: 100% 12rem;
+        border-bottom-left-radius: 100% 12rem;
+    }
+    .hero__title {
+        font-size: 3rem;
+    }
+    .hero__img {
+        height: 420px;
+    }
+
+    .restaurant__a {
+        width: 33%;
+    }
+}
