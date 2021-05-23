@@ -1,0 +1,139 @@
+.tag__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: .5rem;
+}
+.tag__item {
+    display: block;
+    padding: 4px 8px;
+    margin-right: 8px;
+
+    border: thin solid var(--primary-color);
+    border-radius: 4px;
+    font-size: .8rem;
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+.address {
+    margin: 0;
+    margin-bottom: .5rem;
+}
+.address::before {
+    content: '⌂';
+    margin-right: .5rem;
+    font-size: 1.2rem;
+}
+
+.rating::before {
+    content: '★';
+    margin-right: .3rem;
+    font-size: 1rem;
+
+    color: var(--secondary-color);
+}
+
+.menu {
+    display: block;
+}
+.menu__title {
+    position: relative;
+    margin: 0;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+}
+.menu__container {
+    margin: 0;
+    padding-left: 1.8rem;
+    list-style-type: square;
+}
+
+.review__title {
+    width: 100%;
+    margin: 0;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+}
+.review__item {
+    padding: 1rem;
+    margin: .5rem 0;
+    border: thin solid var(--primary-color);
+    background-color: white;
+    border-radius: 8px;
+}
+.review__customer {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: .2rem;
+    text-overflow: ellipsis;
+}
+.review__date {
+    font-size: .9rem;
+    color: #555555;
+}
+.review__content {
+    margin: 0;
+    margin-top: .5rem;
+}
+
+.like-btn__container {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 268px;
+    right: 1rem;
+}
+.like-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    color: red;
+    box-shadow: rgba(0, 0, 0, 0.166) 0 1rem 3rem;
+    transition: background-color .5s;
+}
+.like-btn:hover {
+    background-color: rgb(235, 235, 235);
+}
+.like-btn::before {
+    content: "♡";
+    font-size: 1.5rem;
+}
+.like-btn.liked::before {
+    content: "♥";
+    font-size: 2.2rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .menu, .review {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+    .menu > div {
+        width: 50%;
+    }
+
+    .review__item {
+        width: 43%;
+        margin: .5rem;
+    }
+
+    .like-btn__container {
+        top: 274px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .review__item {
+        width: 20%;
+    }
+
+    .like-btn__container {
+        top: 394px;
+    }
+}
