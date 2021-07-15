@@ -5,11 +5,23 @@ const createLoadingTemplate = () => `
 `;
 
 const createHeroTemplate = (resto) => `
-  <img
-    class="hero__img"
-    src="${resto ? CONFIG.BASE_IMAGE_URL + resto.pictureId : './images/heros/hero-image_2.jpg'}"
-    alt="${resto ? resto.name : 'Hero'}"
-  >
+  <picture>
+    <source
+      media="(max-width: 600px)"
+      srcset="
+        ${resto ?
+          CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId
+          :
+          './images/heros/hero-image_2-small.jpg'
+        }
+      "
+    >
+    <img
+      class="hero__img lazyload"
+      src="${resto ? CONFIG.BASE_IMAGE_URL + resto.pictureId : './images/heros/hero-image_2-large.jpg'}"
+      alt="${resto ? resto.name : 'Hero'}"
+    />
+  </picture>
   <div class="hero__content">
     <h1 class="hero__title">${resto ? resto.name : 'Temukan Restoran Favoritmu'}</h1>
   </div>
@@ -18,7 +30,17 @@ const createHeroTemplate = (resto) => `
 const createRestoItemTemplate = (resto) => `
   <a href="#/detail/${resto.id}" class="restaurant__a">
     <article class="restaurant__item">
-      <img class="restaurant__img" src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="${resto.name}">
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="${CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId}"
+        >
+        <img
+          class="restaurant__img lazyload"
+          src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}"
+          alt="${resto.name}"
+        />
+      </picture>
       <div class="restaurant__content">
         <h1 class="restaurant__title">${resto.name}</h1>
         <p class="restaurant__desc">${resto.description}</p>
