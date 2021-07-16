@@ -1,3 +1,4 @@
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import RestaurantsSource from '../../data/restaurants-source';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
@@ -29,6 +30,7 @@ const Detail = {
 
       LikeButtonInitiator.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        favoriteResto: FavoriteRestaurantIdb,
         restaurant: resto,
       });
     }

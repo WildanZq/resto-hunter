@@ -27,7 +27,6 @@ const Favorite = {
         restoContainer.innerHTML += createRestoItemTemplate(restaurant);
       });
     } else {
-      console.log('aa');
       restoContainer.innerHTML = '<h3>Anda belum memiliki restoran favorit</h3>';
     }
   },

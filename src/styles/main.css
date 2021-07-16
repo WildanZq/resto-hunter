@@ -126,6 +126,8 @@ img {
     background-color: transparent;
     font-size: 1.8rem;
     padding: 3px 10px;
+    min-width: 44px;
+    min-height: 44px;
 }
 .nav:focus-within .nav__list {
     right: 0;
