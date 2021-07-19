@@ -8,17 +8,11 @@ const createHeroTemplate = (resto) => `
   <picture>
     <source
       media="(max-width: 600px)"
-      srcset="
-        ${resto ?
-          CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId
-          :
-          './images/heros/hero-image_2-small.jpg'
-        }
-      "
+      data-srcset="${resto ? CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId : './images/heros/hero-image_2-small.jpg'}"
     >
     <img
       class="hero__img lazyload"
-      src="${resto ? CONFIG.BASE_IMAGE_URL + resto.pictureId : './images/heros/hero-image_2-large.jpg'}"
+      data-src="${resto ? CONFIG.BASE_IMAGE_URL + resto.pictureId : './images/heros/hero-image_2-large.jpg'}"
       alt="${resto ? resto.name : 'Hero'}"
     />
   </picture>
@@ -33,11 +27,11 @@ const createRestoItemTemplate = (resto) => `
       <picture>
         <source
           media="(max-width: 600px)"
-          srcset="${CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId}"
+          data-srcset="${CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId}"
         >
         <img
           class="restaurant__img lazyload"
-          src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}"
+          data-src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}"
           alt="${resto.name}"
         />
       </picture>
